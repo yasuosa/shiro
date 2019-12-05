@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MyBatisCodeHelperDatasource">
+    <option name="projectProfile">
+      <ProjectProfile>
+        <option name="javaMapperPackage" value="cn.rpy.mapper" />
+        <option name="javaMapperPath" value="$PROJECT_DIR$/src/java" />
+        <option name="javaModelPackage" value="cn.rpy.domain" />
+        <option name="javaModelPath" value="$PROJECT_DIR$/src/java" />
+        <option name="lastDatabaseCrudChooseModuleName" value="ssm_shiro" />
+        <option name="moduleNameToPackageAndPathMap">
+          <map>
+            <entry key="ssm_shiro">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="cn.rpy.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/src/java" />
+                  <option name="javaModelPacakge" value="cn.rpy.domain" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/src/java" />
+                  <option name="xmlPackage" value="mapper" />
+                  <option name="xmlPath" value="$PROJECT_DIR$/src/resource" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="tableGenerateConfigs">
+          <map>
+            <entry key="shiro:permission">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="perid" />
+                  <option name="javaModelName" value="Permission" />
+                  <option name="moduleName" value="ssm_shiro" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="shiro:role">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="roleid" />
+                  <option name="javaModelName" value="Role" />
+                  <option name="moduleName" value="ssm_shiro" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="shiro:user">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="userid" />
+                  <option name="javaModelName" value="User" />
+                  <option name="moduleName" value="ssm_shiro" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="xmlMapperPackage" value="mapper" />
+        <option name="xmlMapperPath" value="$PROJECT_DIR$/src/resource" />
+      </ProjectProfile>
+    </option>
+  </component>
+</project>

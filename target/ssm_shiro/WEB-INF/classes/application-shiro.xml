@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!--    申明凭证匹配器-->
+    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+<!--        算法名称-->
+        <property name="hashAlgorithmName" value="md5"/>
+<!--        散列次数-->
+        <property name="hashIterations" value="2"/>
+
+<!--        是否加盐-->
+<!--        <property name="hashSalted" value="true"/>-->
+    </bean>
+
+    <!--    配置自定义realm-->
+    <bean id="userRealm" class="cn.rpy.realm.UserRealm">
+<!--        注入凭证匹配器-->
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+    </bean>
+
+<!--    配置安全管理器 org.apache.shiro.web.mgt.DefaultWebSecurityManager-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="userRealm"/>
+    </bean>
+
+<!--    配置shiro的过滤器 这里的id必须跟web.xml里面的配置一样-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+<!--       注入安全管理器-->
+        <property name="securityManager" ref="securityManager"/>
+<!--        注入未登录的跳转页面 默认webapp/login.jsp-->
+        <property name="loginUrl" value="/index.jsp"/>
+
+<!--        注入未授权的访问页面-->
+        <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
+
+<!--        配置过滤器链-->
+        <property name="filterChainDefinitions">
+            <value>
+<!--                放行index.jsp-->
+                /index.jsp*=anon
+                /login/toLogin*=anon
+                /login/login*=anon\
+
+<!--                设置登出的路劲-->
+                /login/logout*=logout
+
+<!--                设置其他路劲都被拦截-->
+                /**=authc
+            </value>
+        </property>
+    </bean>
+</beans>
