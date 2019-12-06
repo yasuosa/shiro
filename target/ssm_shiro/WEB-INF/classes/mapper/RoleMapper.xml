@@ -57,4 +57,8 @@
     set rolename = #{rolename,jdbcType=VARCHAR}
     where roleid = #{roleid,jdbcType=INTEGER}
   </update>
+    <select id="queryRolesByUserId" resultMap="BaseResultMap">
+        select t1.* from role t1 inner join user_role ur on t1.roleid = ur.roleid
+        where ur.userid=#{id,jdbcType=INTEGER}
+    </select>
 </mapper>

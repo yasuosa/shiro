@@ -11,13 +11,13 @@ public class ActivierUser {
 
     private List<String> roles;
 
-    private List<String> persmissions;
+    private List<String> permissions;
 
     public ActivierUser(){}
-    public ActivierUser(User user, List<String> roles, List<String> persmissions) {
+    public ActivierUser(User user, List<String> roles, List<String> permissions) {
         this.user = user;
         this.roles = roles;
-        this.persmissions = persmissions;
+        this.permissions = permissions;
     }
 
     public User getUser() {
@@ -36,11 +36,11 @@ public class ActivierUser {
         this.roles = roles;
     }
 
-    public List<String> getPersmissions() {
-        return persmissions;
+    public List<String> getPermissions() {
+        return permissions;
     }
 
-    public void setPersmissions(List<String> persmissions) {
-        this.persmissions = persmissions;
+    public void setPermissions(List<String> permissions) {
+        this.permissions = permissions;
     }
 }

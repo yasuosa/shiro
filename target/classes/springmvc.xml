@@ -7,6 +7,22 @@
 
     <!--    扫描-->
     <context:component-scan base-package="cn.rpy.controller"/>
+    <!--    扫描全局监控-->
+    <context:component-scan base-package="cn.rpy.handler"/>
+
+
+
+
+    <!-- 启动Shrio的注解 -->
+    <bean id="lifecycleBeanPostProcessor"
+          class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+
     <!--    配置设配器和映射器-->
     <mvc:annotation-driven/>
 

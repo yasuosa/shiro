@@ -92,4 +92,10 @@
       address = #{address,jdbcType=VARCHAR}
     where userid = #{userid,jdbcType=INTEGER}
   </update>
+    <select id="selectByUserName" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List" />
+      from user
+      where username = #{username}
+    </select>
 </mapper>

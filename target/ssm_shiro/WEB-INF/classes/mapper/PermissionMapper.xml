@@ -68,4 +68,11 @@
       percode = #{percode,jdbcType=VARCHAR}
     where perid = #{perid,jdbcType=INTEGER}
   </update>
+  <select id="queryPermissionsByUserId" resultMap="BaseResultMap">
+    select  distinct t1.* from permission t1
+    inner join role_permission t2
+    inner join user_role ur
+    on (t2.roleid = ur.roleid and t1.perid=t2.perid)
+    where ur.userid=#{userId}
+  </select>
 </mapper>
